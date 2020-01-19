@@ -13,7 +13,7 @@ app.use(express.static('data'));
 //DiscordBot
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'NjY4MzE0MjQ5ODE4NDA2OTIz.XiRCJQ.apYqFgm7mAFmwrSOT5rsg2oPhYQ';
+const token = 'NjY4MzE0MjQ5ODE4NDA2OTIz.XiRRjA.arLeHVLb1nilwSf72cwlHKik2bc';
 const prefix = '~';
 
 bot.on('ready', ()=>{
@@ -38,9 +38,23 @@ bot.on('message', message=>{
             } catch (e) {
                 console.log(e);
             }
-        finally{
-            console.log("done");
-        }
+        break;
+        case "help":
+            message.channel.send("Help is on the way")
+        break;
+        case "rules":
+            message.channel.send("The Rules of Assassin are simple \n -You will recieve a target tha you must eliminate \n - You are only allowd to take out your own target, killing anyone else will result in you getting eliminated\n- Once you have achieved your objective, you will be rewarded, and you will recieve a new target \n- Last assassin remaining will win the game")
+        break;
+        case 'admin_quit':
+                try {
+                    message.guild.members.forEach(member => {
+                        member.send("Game Over, Thanks for playing")
+                    })
+                } catch (e) {
+                    console.log(e);
+                }
+    
+        console.log('game over');
     }
     app.get('/start', game_start);
     function game_start(request, response){
