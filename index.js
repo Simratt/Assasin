@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'NjY4MzE0MjQ5ODE4NDA2OTIz.XiPvHA.6WkQMTHDK1A2OVhHuDdWytljaYg';
+const token = 'NjY4MzE0MjQ5ODE4NDA2OTIz.XiP_7g.LqRlq_Z9omtoApZ89cIAHVRTGP8';
 const prefix = '~';
 
 bot.on('ready', ()=>{
@@ -10,16 +10,17 @@ bot.on('ready', ()=>{
 bot.on('message', message=>{
     let args = message.content.substring(prefix.length).split(" ");
     switch(args[0]){
-        case "cash?":
-            setTimeout(function msg(){
-                message.channel.send('GET YOUR OWN CASH ಠ_ಠ')
-            }, 1000);
-        break;
-
         case "start":
-            const list = bot.guilds.members; 
-            list.members.forEach(member => console.log(member.user.username)); 
-        break;
+            try {
+                message.channel.members.forEach(member => {
+                    member.send("Welcome to the game")
+                })
+            } catch (e) {
+                console.log(e);
+            }
+        finally{
+            console.log("done");
+        }
     }
     
 })
