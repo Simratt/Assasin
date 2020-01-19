@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'NjY4MzE0MjQ5ODE4NDA2OTIz.XiPnnA.u0pOTpho-12gUknIqlf5f4VtIHs';
+const token = 'NjY4MzE0MjQ5ODE4NDA2OTIz.XiPvHA.6WkQMTHDK1A2OVhHuDdWytljaYg';
 const prefix = '~';
 
 bot.on('ready', ()=>{
@@ -15,6 +15,12 @@ bot.on('message', message=>{
                 message.channel.send('GET YOUR OWN CASH ಠ_ಠ')
             }, 1000);
         break;
+
+        case "start":
+            const list = bot.guilds.members; 
+            list.members.forEach(member => console.log(member.user.username)); 
+        break;
     }
+    
 })
 bot.login(token);
