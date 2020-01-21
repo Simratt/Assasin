@@ -25,7 +25,7 @@ bot.on('message', async message=>{
     //members = message.channel.members.values()
     players = []
     switch(args[0]){
-        case "send":
+        case "start":
             try{
                 message.channel.members.forEach(member => {
                     if(member['user']['username'] != 'BAWSE'){
